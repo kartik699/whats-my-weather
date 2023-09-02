@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 import { FiThermometer } from "react-icons/fi";
 
-const CurrTempStats = ({ weather }) => {
+const TempStats = ({ weather }) => {
     return (
         <div id="temp-container">
             <div>
@@ -34,4 +34,4 @@ const CurrTempStats = ({ weather }) => {
     );
 };
 
-export default CurrTempStats;
+export default TempStats;

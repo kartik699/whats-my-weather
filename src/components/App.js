@@ -1,6 +1,4 @@
-import Logo from "./Logo";
-import TempStats from "./TempStats";
-import WindStats from "./WindStats";
+import { Logo, LocationSetter, TempStats, WindStats } from ".";
 import { API_URLS } from "../utils/constants";
 import { useEffect, useState } from "react";
 import { Circles } from "react-loader-spinner";
@@ -21,9 +19,16 @@ function App() {
     }
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            getWeather(position.coords.latitude, position.coords.longitude);
-        });
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                getWeather(position.coords.latitude, position.coords.longitude);
+            },
+            () => {
+                let egLat = 28.61;
+                let egLon = 77.21;
+                getWeather(egLat, egLon);
+            }
+        );
     }, []);
 
     return (
@@ -46,6 +51,7 @@ function App() {
                     <Logo />
                     <TempStats weather={stats} />
                     <WindStats wind={stats} />
+                    <LocationSetter />
                 </>
             )}
         </div>
