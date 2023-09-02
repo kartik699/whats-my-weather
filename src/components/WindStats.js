@@ -1,7 +1,9 @@
 import { FaWind } from "react-icons/fa";
 import { LuWaves } from "react-icons/lu";
 
-const WindStats = () => {
+const WindStats = ({ wind }) => {
+    console.log(wind);
+
     return (
         <>
             <div className="category">
@@ -12,7 +14,9 @@ const WindStats = () => {
                 <div>
                     <LuWaves />
                     &nbsp; Speed &nbsp;
-                    <span style={{ color: "#fc0" }}>4.26</span>
+                    <span
+                        style={{ color: "#fc0" }}
+                    >{`${wind.current.wind_kph}`}</span>
                 </div>
                 <div>
                     <svg
@@ -28,12 +32,18 @@ const WindStats = () => {
                         />
                     </svg>
                     &nbsp; Deg &nbsp;
-                    <span style={{ color: "#fc0" }}>301</span>
+                    <span
+                        style={{ color: "#fc0" }}
+                    >{`${wind.current.wind_degree}`}</span>
                 </div>
-                <div>
-                    <FaWind /> &nbsp; Gust &nbsp;
-                    <span style={{ color: "#fc0" }}>5.62</span>
-                </div>
+                {wind.current.gust_kph ? (
+                    <div>
+                        <FaWind /> &nbsp; Gust &nbsp;
+                        <span
+                            style={{ color: "#fc0" }}
+                        >{`${wind.current.gust_kph}`}</span>
+                    </div>
+                ) : null}
             </div>
         </>
     );

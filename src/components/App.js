@@ -1,25 +1,53 @@
 import Logo from "./Logo";
 import TempStats from "./TempStats";
 import WindStats from "./WindStats";
-// import { useEffect, useState } from "react";
+import { API_URLS } from "../utils/constants";
+import { useEffect, useState } from "react";
+import { Circles } from "react-loader-spinner";
 
 function App() {
-    // const [location, setLocation] = useState(null);
+    const [stats, setStats] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    // useEffect(() => {
-    //     navigator.geolocation.watchPosition((position) => {
-    //         setLocation(position);
-    //         console.log("latitude: " + position.coords.latitude);
-    //         console.log("longitude: " + position.coords.longitude);
-    //     });
-    // }, [location]);
+    function getWeather(lat, lon) {
+        fetch(API_URLS.getByLatLon(lat, lon))
+            .then((res) => res.json())
+            .then((stats) => {
+                setStats(stats);
+                setIsLoading(false);
+                return stats;
+            })
+            .catch((err) => console.log(err));
+    }
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            getWeather(position.coords.latitude, position.coords.longitude);
+        });
+    }, []);
 
     return (
         <div className="App">
-            <div className="bg-image"></div>
-            <Logo />
-            <TempStats />
-            <WindStats />
+            {isLoading ? (
+                <div className="loader">
+                    <Circles
+                        height="80"
+                        width="80"
+                        color="#fc0"
+                        ariaLabel="circles-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />
+                </div>
+            ) : (
+                <>
+                    <div className="bg-image"></div>
+                    <Logo />
+                    <TempStats weather={stats} />
+                    <WindStats wind={stats} />
+                </>
+            )}
         </div>
     );
 }

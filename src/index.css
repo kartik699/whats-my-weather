@@ -45,6 +45,7 @@ body {
     width: 100%;
     height: 150px;
     padding: 1rem;
+    flex-wrap: wrap;
 }
 
 #temp-container > div,
@@ -95,4 +96,12 @@ body {
 
 #wind-container {
     font-size: 40px;
+}
+
+.loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
