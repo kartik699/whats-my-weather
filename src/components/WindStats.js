@@ -2,8 +2,6 @@ import { FaWind } from "react-icons/fa";
 import { LuWaves } from "react-icons/lu";
 
 const WindStats = ({ wind }) => {
-    console.log(wind);
-
     return (
         <>
             <div className="category">

@@ -105,3 +105,53 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+#loc-box {
+    /* outline: 1px solid black; */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loc-box > * {
+    /* outline: 1px solid red; */
+    flex-basis: 40%;
+    height: 100%;
+    background: #ffcc00;
+}
+
+#loc-box > div,
+#loc-box > form {
+    font-family: Inter;
+    font-size: 1.5em;
+    font-weight: 500;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+#loc-box > form {
+    justify-content: center;
+}
+
+#loc-box input {
+    outline: none;
+    border: none;
+    margin: 1rem;
+    height: 50%;
+    border-radius: 7px;
+    padding-left: 5px;
+}
+
+#loc-box button {
+    border-radius: 7px;
+    border: none;
+    height: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#loc-box button:hover {
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
