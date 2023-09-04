@@ -1,14 +1,11 @@
-import {
-    FaThermometerQuarter,
-    FaThermometerThreeQuarters,
-} from "react-icons/fa";
+import { FaThermometerThreeQuarters } from "react-icons/fa";
 import { FiThermometer } from "react-icons/fi";
 
 const TempStats = ({ weather }) => {
     return (
         <div id="temp-container">
             <div>
-                <FaThermometerQuarter />
+                <img src={weather.current.condition.icon} alt="weather icon" />
                 <div className="curr-temp">
                     <span>{`${weather.current.temp_c} °C`}</span>
                     <span
@@ -20,14 +17,14 @@ const TempStats = ({ weather }) => {
                 <FiThermometer />
                 Min &nbsp;
                 <span
-                    style={{ color: "#fc0" }}
+                    style={{ color: "#f28500" }}
                 >{`${weather.forecast.forecastday[0].day.mintemp_c} °C`}</span>
             </div>
             <div className="min-max">
                 <FaThermometerThreeQuarters />
                 Max &nbsp;
                 <span
-                    style={{ color: "#fc0" }}
+                    style={{ color: "#f28500" }}
                 >{`${weather.forecast.forecastday[0].day.maxtemp_c} °C`}</span>
             </div>
         </div>

@@ -13,7 +13,7 @@ const WindStats = ({ wind }) => {
                     <LuWaves />
                     &nbsp; Speed &nbsp;
                     <span
-                        style={{ color: "#fc0" }}
+                        style={{ color: "#f28500" }}
                     >{`${wind.current.wind_kph}`}</span>
                 </div>
                 <div>
@@ -31,14 +31,14 @@ const WindStats = ({ wind }) => {
                     </svg>
                     &nbsp; Deg &nbsp;
                     <span
-                        style={{ color: "#fc0" }}
+                        style={{ color: "#f28500" }}
                     >{`${wind.current.wind_degree}`}</span>
                 </div>
                 {wind.current.gust_kph ? (
                     <div>
                         <FaWind /> &nbsp; Gust &nbsp;
                         <span
-                            style={{ color: "#fc0" }}
+                            style={{ color: "#f28500" }}
                         >{`${wind.current.gust_kph}`}</span>
                     </div>
                 ) : null}
