@@ -1,5 +1,5 @@
 const API_KEY = "fc92692afe95497c926151314230209";
-const API_ROOT = "http://api.weatherapi.com/v1";
+const API_ROOT = "https://api.weatherapi.com/v1";
 
 export const API_URLS = {
     getByLatLon: (lat, lon) =>

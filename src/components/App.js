@@ -9,8 +9,6 @@ function App() {
     const [city, setCity] = useState("New Delhi");
 
     function getWeather(lat = 28.61, lon = 77.21) {
-        console.log("API call made!");
-
         if (city === "New Delhi") {
             fetch(API_URLS.getByLatLon(lat, lon))
                 .then((res) => res.json())
