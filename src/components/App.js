@@ -1,6 +1,6 @@
 import { Logo, LocationSetter, TempStats, WindStats } from ".";
 import { API_URLS } from "../utils/constants";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Circles } from "react-loader-spinner";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
                 })
                 .catch((err) => console.log(err));
         } else {
-            fetch(API_URLS.getByCityOrIp(city))
+            fetch(API_URLS.getByCity(city))
                 .then((res) => res.json())
                 .then((stats) => {
                     setStats(stats);
@@ -56,7 +56,7 @@ function App() {
                 </div>
             ) : (
                 <>
-                    <div className="bg-image"></div>
+                    <div id="bg-image"></div>
                     <Logo />
                     <TempStats weather={stats} />
                     <WindStats wind={stats} />
