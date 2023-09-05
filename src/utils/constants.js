@@ -1,4 +1,4 @@
-const API_KEY = "fc92692afe95497c926151314230209";
+const API_KEY = YOUR_API_KEY;
 const API_ROOT = "https://api.weatherapi.com/v1";
 
 export const API_URLS = {
